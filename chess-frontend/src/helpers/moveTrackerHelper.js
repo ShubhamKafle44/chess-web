@@ -1,3 +1,5 @@
+//This section tracks all teh moves made for displaying the moves section on the webpage.Can be used to later analyze the game later.
+
 export const moveTrackerMap = (x, y, pieceName, pieces) => {
   let pieceTracker = new PieceTracker(x, y, pieces);
 
@@ -270,7 +272,6 @@ class PieceTracker {
   }
 
   isKing() {
-   
     //up
     if (this.x - 1 >= 0) {
       let pos = (this.x - 1).toString() + ":" + this.y.toString();

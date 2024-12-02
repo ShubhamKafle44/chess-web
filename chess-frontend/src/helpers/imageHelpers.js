@@ -1,3 +1,4 @@
+//This section is used to draw the pieces on the board.
 export const initialPieces = {
   "0:0": { image: require("../assets/wr.png"), color: "w", pieceName: "r" },
   "0:1": { image: require("../assets/wn.png"), color: "w", pieceName: "n" },

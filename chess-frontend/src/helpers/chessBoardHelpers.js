@@ -1,3 +1,6 @@
+//This compnent gets the active position of the boiard handels all the possible moves.
+//This section can be used to generate AI moves as well by analyzing the active board section.
+
 import { changeKingPosition, changeOpponentKingPosition } from "../api/action";
 import { callingOpponentForCheckMate } from "./checkMateAttackHelpers";
 import {

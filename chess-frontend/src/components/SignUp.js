@@ -57,7 +57,7 @@ export default function SignUp(props) {
   return (
     <div style={rootDiv}>
       <div style={signUpDiv}>
-        <h2> A23 Chess</h2>
+        <h2> LETS PLAY CHESS</h2>
 
         <input
           style={inputStyle}
@@ -73,6 +73,7 @@ export default function SignUp(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          type="password"
         />
 
         <button style={signUpButtonStyle} onClick={signUp}>
@@ -101,7 +102,9 @@ const rootDiv = {
   justifyContent: "center",
   height: "100vh",
   alignItems: "center",
-  backgroundColor: "rgb(46, 46, 46)",
+  backgroundImage:
+    "url('https://www.transparenttextures.com/patterns/black-linen.png')",
+  backgroundColor: "rgb(34, 34, 34)",
 };
 
 const signUpDiv = {
@@ -111,8 +114,10 @@ const signUpDiv = {
   flexDirection: "column",
   width: 300,
   height: 250,
-  borderRadius: 5,
-  backgroundColor: "rgb(255, 253, 234)",
+  borderRadius: "10px", // Slightly smoother rounded corners
+  backgroundImage: "linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb)", // Gradient with pastel pinks
+  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+  padding: "20px", // Adds space inside the container
 };
 
 const inputStyle = {

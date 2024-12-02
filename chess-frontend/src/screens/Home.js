@@ -1,4 +1,18 @@
-import { Avatar, Button } from "@mui/material";
+/**
+ * Home Component
+ *
+ * This component serves as the main hub for authenticated users. It displays a welcome message, allows users to join
+ * a chess room with a specified time limit, and provides functionality to log out. The component also fetches
+ * user details on load to check if they are already in a game and manages reconnections using Socket.IO.
+ *
+ * Key Features:
+ * - Displays user-specific greetings based on authentication.
+ * - Supports joining chess rooms with various time settings.
+ * - Handles secure logout and user session management.
+ * - Provides future extension for custom games and AI gameplay.
+ */
+
+import { Button } from "@mui/material";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,6 +55,7 @@ export default function Home() {
     window.location.reload();
   };
 
+  //THis is for creating a socket connection calling the server for hanshake connection.
   const joinChessRoom = (min) => {
     socket.emit("join_room", {
       username: user?.username,
@@ -57,7 +72,7 @@ export default function Home() {
           height: 60,
           display: "flex",
           width: "100%",
-          backgroundColor: "#eabf69",
+          backgroundColor: "#FFFFFF",
           alignItems: "center",
           justifyContent: "space-around",
         }}
@@ -67,17 +82,13 @@ export default function Home() {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "center",
           }}
         >
-          <Avatar sx={{ bgcolor: "#07C058" }}>
-            {user?.username && user?.username[0]}
-          </Avatar>
-          <h3 style={{ marginLeft: 5 }}> {user?.username}</h3>
+          <h3 style={{ marginLeft: 5 }}> Hello {user?.username}</h3>
         </div>
 
         <img
-          src={"https://www.a23.com/index_assets/images/a23-games-logo.svg"}
+          src="./logo.jpg"
           alt=""
           style={{ height: 40, width: 40, margin: 5 }}
         />
@@ -89,9 +100,26 @@ export default function Home() {
       </div>
 
       <div style={{ padding: 10 }}>
-        <h2 style={{ color: "white" }}> Play </h2>
+        <h2
+          style={{
+            color: "white",
+            display: "flex", // Make it a flex container
+            justifyContent: "center", // Center horizontally
+            alignItems: "center", // Center vertically (if parent has height)
+            textAlign: "center", // Ensures the text is centered if it spans multiple lines
+          }}
+        >
+          Play
+        </h2>
+
         <div
-          style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+          style={{
+            display: "flex",
+            gap: "14px",
+            justifyContent: "center",
+            flexDirection: "row",
+            flexWrap: "wrap",
+          }}
         >
           <Button
             onClick={() => {
@@ -136,24 +164,44 @@ export default function Home() {
         </div>
         <br />
 
-        <h2 style={{ color: "white" }}> Other </h2>
+        {/*This section is for playing with an AI and users can also create a custom game. This is my future work.  */}
+        {/* 
+        <h2
+          style={{
+            color: "white",
+            display: "flex", // Make it a flex container
+            justifyContent: "center", // Center horizontally
+            alignItems: "center", // Center vertically (if parent has height)
+            textAlign: "center", // Ensures the text is centered if it spans multiple lines
+          }}
+        >
+          {" "}
+          Other{" "}
+        </h2>
 
         <div
           style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
         >
           <Button style={otherComponent}>Custom Game</Button>
-          <Button style={otherComponent}>Play Friend</Button>
-        </div>
+          <Button style={otherComponent}>Play with AI</Button>
+        </div> */}
       </div>
     </div>
   );
 }
 
 const rootDiv = {
+  // height: "100vh",
+  // backgroundColor: "rgb(46, 46, 46)",
   display: "flex",
-  height: "100vh",
-  backgroundColor: "rgb(46, 46, 46)",
   flexDirection: "column",
+
+  justifyContent: "center",
+  height: "100vh",
+  alignItems: "center",
+  backgroundImage:
+    "url('https://www.transparenttextures.com/patterns/black-linen.png')",
+  backgroundColor: "rgb(34, 34, 34)",
 };
 
 const timeComp = {
@@ -165,9 +213,16 @@ const timeComp = {
 };
 
 const otherComponent = {
-  color: "white",
-  backgroundColor: "rgba(191, 41, 41, 0.5)",
+  color: "white", // Text color
+  backgroundColor: "rgba(191, 41, 41, 0.8)", // Slightly darker background for better contrast
   height: 60,
-  margin: 2,
-  fontSize: 16,
+  margin: "10px auto", // Center-align and add consistent spacing
+  padding: "10px 20px", // Add internal spacing
+  fontSize: "16px", // Text size
+  fontWeight: "bold", // Make the text stand out
+  textAlign: "center", // Center the text
+  borderRadius: "8px", // Smooth rounded corners
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow for depth
+  cursor: "pointer", // Pointer cursor for interactivity
+  transition: "all 0.3s ease", // Smooth hover transition
 };

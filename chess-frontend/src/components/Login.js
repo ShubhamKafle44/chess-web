@@ -62,7 +62,7 @@ export default function Login(props) {
   return (
     <div style={rootDiv}>
       <div style={loginDiv}>
-        <h2> A23 Chess</h2>
+        <h2> LETS PLAY CHESS</h2>
 
         <input
           style={inputStyle}
@@ -76,6 +76,7 @@ export default function Login(props) {
         <input
           style={inputStyle}
           value={password}
+          type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
@@ -106,7 +107,9 @@ const rootDiv = {
   justifyContent: "center",
   height: "100vh",
   alignItems: "center",
-  backgroundColor: "rgb(46, 46, 46)",
+  backgroundImage:
+    "url('https://www.transparenttextures.com/patterns/black-linen.png')",
+  backgroundColor: "rgb(34, 34, 34)",
 };
 
 const loginDiv = {
@@ -116,29 +119,38 @@ const loginDiv = {
   flexDirection: "column",
   width: 300,
   height: 250,
-  borderRadius: 5,
-  backgroundColor: "rgb(255, 253, 234)",
+  borderRadius: "10px", // Slightly smoother rounded corners
+  backgroundImage: "linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb)", // Gradient with pastel pinks
+  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+  padding: "20px", // Adds space inside the container
 };
 
 const inputStyle = {
   width: "60%",
-  padding: 5,
-  outline: "none",
-  backgroundColor: "rgb(255, 253, 234)",
-  border: "none",
-  borderBottom: "1px solid black",
+  padding: "8px 10px", // Better spacing for text
+  outline: "none", // Removes default focus outline
+  backgroundColor: "rgba(255, 253, 234, 0.8)", // Slightly transparent for blending
+  border: "1px solid rgba(0, 0, 0, 0.1)", // Subtle border for visibility
+  borderRadius: "5px", // Rounded corners for a softer look
+  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Adds depth
+  fontSize: "16px", // Modern and readable font size
+  transition: "all 0.3s ease", // Smooth transition for focus effect
 };
 
 const loginButtonStyle = {
-  backgroundColor: "green",
-  width: "28%",
-  padding: 5,
-  border: "none",
-  outline: "none",
-  borderRadius: 2,
-  color: "white",
-  marginTop: 8,
-  cursor: "pointer",
+  backgroundColor: "green", // Primary background color
+  width: "30%", // Slightly increased for better proportion
+  padding: "10px 15px", // More consistent internal spacing
+  border: "none", // Removes border
+  outline: "none", // Prevents default focus outline
+  borderRadius: "5px", // Smooth rounded corners
+  color: "white", // Text color
+  fontSize: "16px", // More readable text size
+  fontWeight: "bold", // Stronger emphasis
+  marginTop: "10px", // Spacing from the top
+  cursor: "pointer", // Pointer cursor for interactivity
+  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+  transition: "all 0.3s ease", // Smooth transition for hover effect
 };
 
 const createNewAccountStyle = {

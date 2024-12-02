@@ -1,3 +1,5 @@
+//This page includes all the checkmate checking logics
+
 export const callingOpponentForCheckMate = (
   kingPosX,
   kingPosY,
@@ -157,8 +159,6 @@ class CheckMateAttack {
       if (this.pieces[pos] && this.pieces[pos].color === currentPieceColor) {
         break;
       }
-
-      
 
       if (this.pieces[pos] && this.pieces[pos].color !== currentPieceColor) {
         if (i === this.kingPosX && j === this.kingPosY) {

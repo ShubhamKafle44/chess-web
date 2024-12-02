@@ -1,8 +1,11 @@
+//Design the chessboard component. THis component focuses on creating the overall chessboard design and connect the sockets after a piece moves(call the server)
+
 import React, { useEffect, useRef, useState } from "react";
 import Box from "../components/Box";
 import { socket, url } from "../helpers/apiHelpers";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   addUser,
   addUsers,
@@ -11,6 +14,7 @@ import {
   resetOpponentPieces,
   resetPiece,
 } from "../api/action";
+
 import {
   gridConstants,
   h,
@@ -139,7 +143,7 @@ export default function ChessBoard() {
       // console.log(data.time)
 
       setPrevMovePos(data.prevMovePos);
-      
+
       setMinutes(data.time.opponentMinutes);
 
       setSeconds(data.time.opponentSeconds);

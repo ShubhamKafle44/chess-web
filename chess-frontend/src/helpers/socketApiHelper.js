@@ -1,5 +1,5 @@
 import { socket } from "./apiHelpers";
-
+//This section sends the data to the server.
 export const messageToSocket = (
   roomid,
   users,

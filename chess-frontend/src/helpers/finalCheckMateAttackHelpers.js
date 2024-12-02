@@ -1,3 +1,5 @@
+//THis section checks if the game is over, checks if any otyher piece can block the check or not.
+
 import { pieceValidMethodMap } from "./validHelpers";
 
 export const checkMateStopFromOTherPiece = (
@@ -217,7 +219,7 @@ export const checkMateStopFromOTherPiece = (
   }
 
   if (knightAttack) {
-    console.log("knight")
+    console.log("knight");
     return allPiecesOfKingColorAbleToStopCheckMate(
       pieces,
       currentPiecePosX,
@@ -226,7 +228,7 @@ export const checkMateStopFromOTherPiece = (
       kingPosY
     );
   }
-  console.log("all pieces not able to stop king")
+  console.log("all pieces not able to stop king");
 
   return false;
 };
@@ -241,8 +243,6 @@ export const allPiecesOfKingColorAbleToStopCheckMate = (
   let kingPos = kingPosX.toString() + ":" + kingPosY.toString();
 
   let kingPosColor = pieces[kingPos].color;
-
-  
 
   for (let piecePos in pieces) {
     let piecePosX = piecePos.split(":")[0];
@@ -409,7 +409,7 @@ const allDirTraverse = (
           Math.abs(kingNextMovePosX - i) === 1 &&
           Math.abs(j - kingNextMovePosY) === 1)
       ) {
-        console.log( "leftDown");
+        console.log("leftDown");
         return false;
       }
     }
